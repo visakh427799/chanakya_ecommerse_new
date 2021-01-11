@@ -1,0 +1,306 @@
+
+<head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap Min CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <!-- Animation Min CSS -->
+        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <!-- Font Awesome Min CSS -->
+        <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+        <!-- Owl Carousel Min CSS -->
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <!-- Slick Min CSS -->
+        <link rel="stylesheet" href="assets/css/slick.min.css">
+        <!-- Nice Select CSS -->
+        <link rel="stylesheet" href="assets/css/nice-select.css">
+        <!-- Magnific Popup Min CSS -->
+        <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+		<!-- Odometer Min CSS -->
+		<link rel="stylesheet" href="assets/css/odometer.min.css">
+        <!-- FlatIcon CSS -->
+        <link rel="stylesheet" href="assets/css/flaticon.css">
+        <!-- Mean Menu CSS -->
+        <link rel="stylesheet" href="assets/css/meanmenu.css">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <!--preloader-->
+        <link rel="stylesheet" href="assets/css/loader.css">
+        <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:900&display=swap" rel="stylesheet">
+	<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-storage.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
+    <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+
+<script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+<!-- Include a polyfill for ES6 Promises (optional) for IE11 -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+<script type="module">
+  import Swal from 'sweetalert2/src/sweetalert2.js'
+</script>
+        <title>Chanakya - Online Mental Health Service Platform</title>
+
+        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    </head>
+    
+
+    <body>
+
+         <!-- Preloader -->
+         <div id="loader">
+            <img src="assets/img/loader.gif" alt="loading">
+            <h1 class="title">Just Breathe ...</h1>
+           
+
+
+        </div>
+        <!-- End Preloader -->
+                      <!-- Start Navbar Area -->
+                      <div class="navbar-area">
+                        <div class="fovia-responsive-nav">
+                            <div class="container">
+                                <div class="fovia-responsive-menu">
+                                    <div class="logo">
+                                        <a href="index.html">
+                                            <img src="assets/img/logo.png" alt="logo">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="fovia-nav">
+                            
+                                <nav class="navbar navbar-expand-md navbar-light">
+                                    <a class="navbar-brand" href="index.html">
+                                        <img src="assets/img/logo.png" alt="logo">
+                                    </a>
+        
+                                    <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item"><a href="/" class="nav-link ">Home</a></li>
+                                            <li class="nav-item"><a href="/" class="nav-link ">Login</a></li>
+                                        </ul>   
+                                            
+                                    </div>
+                                        
+                                        
+                                    </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Navbar Area -->
+
+    
+
+ 
+        </header>
+        <!-- End Header Area -->
+
+        <!-- Start Page Title Area -->
+        
+        <!-- End Page Title Area -->
+
+        <!-- Start Contact Area -->
+        <h2 class="text-center">Register</h2>
+        <section class="contact-area ptb-70">
+            
+            
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-lg-7 col-md-12">
+                        <div class="contact-form">
+                         <form action="/signup" method="POST">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" name="username" id="name" class="form-control" required data-error="Please enter your name" placeholder="Name">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" name="email" id="email" class="form-control" required data-error="Please enter your email" placeholder="Email">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" name="phone" id="phone_number" required data-error="Please enter your number" class="form-control" placeholder="Phone">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+
+                                     <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                             <input type="password" name="pass1" id="phone_number" required data-error="Please enter your password" class="form-control" placeholder="Password">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group">
+                                             <input type="password" name="pass2" id="phone_number" required data-error="Please confirm your password" class="form-control" placeholder="Confirm password">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    
+                                          
+
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <button type="submit" class="btn btn-primary">Signup <i class="flaticon-right-chevron"></i></button>
+                                        
+                                    </div>
+                                </div>
+                            </form>
+                           
+                           <h5 class="text-danger">{{message}}</h5>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-md-12">
+                         <!-- an image will be go here-->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-map"><img src="assets/img/bg-map.png" alt="image"></div>
+        </section>
+        <!-- End Contact Area -->
+        
+        <!-- Start Footer Area -->
+        {{!-- <section class="footer-area">
+            <div class="container">
+                <div class="subscribe-area">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="newsletter-content">
+                                <h2>
+                                    Join Our Newsletter</h2>
+                                <p>Join or Subscribe Our Newsletter to get our daily updates</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-12">
+                            <form class="newsletter-form" data-toggle="validator">
+                                <input type="email" class="input-newsletter" placeholder="Enter your email" name="EMAIL" required autocomplete="off">
+
+                                <button type="submit">Subscribe <i class="fas fa-paper-plane"></i></button>
+                                <div id="validator-newsletter" class="form-result"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <div class="logo">
+                                <a href="#"><img src="assets/img/logo3.png" alt="image"></a>
+                                <p>Chanakya - Online Mental Health Service Platform.</p>
+                            </div>
+
+                            <ul class="social">
+                                <li><a href="https://www.facebook.com/Chanakya-110319847443887/"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://mobile.twitter.com/chanakyaoffici1/status/1292118357995450368"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="https://www.instagram.com/chanakyaofficials/"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget pl-5">
+                            <h3>Services</h3>
+
+                            <ul class="departments-list">
+                                <li><a href="#">Services</a></li>
+                                <li><a href="shop.html">Shop</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Workshops</a></li>
+                                <li><a href="#">Podcasts</a></li>
+                                <li><a href="confession_room.html">Confession Room</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-footer-widget pl-5">
+                            <h3>Links</h3>
+
+                            <ul class="links-list">
+                                <li><a href="shop.html">Shop</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="copyright-area">
+                    <p><i class="far fa-copyright"></i> Copyright 2020 - <a href="https://chanakya.live" target="_blank"><strong>Chanakya</strong></a></p>
+                </div>
+            </div>
+        </section> --}}
+        <!-- End Footer Area -->
+
+        <div class="go-top"><i class="fas fa-chevron-up"></i></div>
+        
+        <!-- jQuery Min JS -->
+        <script src="assets/js/jquery.min.js"></script>
+        <!-- Popper Min JS -->
+        <script src="assets/js/popper.min.js"></script>
+        <!-- Bootstrap Min JS -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!-- Owl Carousel Min JS -->
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <!-- Slick Min JS -->
+        <script src="assets/js/slick.min.js"></script>
+        <!-- Mean Menu JS -->
+        <script src="assets/js/jquery.meanmenu.js"></script>
+		<!-- Appear Min JS -->
+		<script src="assets/js/jquery.appear.min.js"></script>
+		<!-- Odometer Min JS -->
+        <script src="assets/js/odometer.min.js"></script>
+        <!-- Parallax Min JS -->
+        <script src="assets/js/parallax.min.js"></script>
+        <!-- Magnific Popup Min JS -->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!-- Nice Select Min JS -->
+        <script src="assets/js/jquery.nice-select.min.js"></script>
+        <!-- WOW Min JS -->
+        <script src="assets/js/wow.min.js"></script>
+        <!-- AjaxChimp Min JS -->
+        <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+        <!-- Form Validator Min JS -->
+        <script src="assets/js/form-validator.min.js"></script>
+        <!-- Contact Form Min JS -->
+        <script src="assets/js/contact-form-script.js"></script>
+        <!-- Main JS -->
+        <script src="assets/js/main.js"></script>
+        <!--loader.js-->
+        <script src="assets/js/loader.min.js"></script>
+    </body>
+</html>
+
+
+
+
+
+
