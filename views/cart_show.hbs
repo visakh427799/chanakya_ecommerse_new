@@ -43,7 +43,7 @@
 
         <!-- Preloader -->
          <div id="loader">
-            <img src="assets/img/loader.gif" alt="loading">
+            <img src="assets/img/loader1.gif" alt="loading">
             <h1 class="title">Just Breathe ...</h1>
             
 
@@ -135,7 +135,7 @@
             </div>
         </section>
         <!-- End Page Title Area -->
-
+   {{#if data}} 
         <!-- Start Shop Area -->  <h1 class="text-center">Cart({{k}})</h1>
         <section class="shop-area ptb-50">
             <div class="container">
@@ -167,6 +167,7 @@
                 <div class="row">
 
                          <div class="row m-3 bg-light ">   
+                        
                              {{#each data}}
                      
                                 <div class="col-md-4 mt-2">
@@ -182,18 +183,21 @@
                                             
                                         </div> 
                                 <div class="col-md-4 mt-4">
-                                    <a class="btn btn-success" href="/addcartitem/{{this.item_id}}">+</a>
+                                    <a class="btn btn-success" href="/addcartitem/{{this.item_id}}" >+</a>
                                     <a class="btn btn-primary" href="/minuscartitem/{{this.item_id}}">-</a> 
-                                    <a class="btn btn-danger" href="/removecartitem/{{this._id}}>">Remove</a> 
+                                    <a class="btn btn-danger" href="/removecartitem/{{this._id}}">Remove</a> 
                                
                                  </div> 
                               
                         {{/each}}
                 </div>
 
-                   
+                   {{else}}
+                   <h1 class="text-center">Cart empty</h1>
+                   <center><a class="btn btn-primary" href="/">shop now</a></center>
+                   {{/if}}
 
-                    <div class="col-lg-12 col-md-12">
+                    <div class="col-lg-12 col-md-12 ">
                         <div class="pagination-area">
                             <a href="#" class="prev page-numbers"><i class="fas fa-angle-double-left"></i></a>
                             <a href="#" class="page-numbers">1</a>
@@ -209,7 +213,7 @@
         <!-- End Shop Area -->
 
         <!-- Start Footer Area -->
-        <section class="footer-area">
+        <section class="footer-area mt-3">
             <div class="container">
                 <div class="subscribe-area">
                     <div class="row align-items-center">
