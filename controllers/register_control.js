@@ -51,7 +51,7 @@ const Signup=(req,res,next)=>{
                                 })
                             }
                             else{
-                                res.redirect('/signup')
+                                res.redirect('/login')
                             }
                         })
 

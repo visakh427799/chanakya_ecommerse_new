@@ -152,14 +152,14 @@ if(res.user){
 }
   items.find({},(err,data)=>{
 
-      if(res.user) {
-        console.log(res.user)
-      }
-      else{
+      // if(res.user) {
+      //   console.log(res.user)
+      // }
+      // else{
         
-        console.log("jii")
+      //   console.log("jii")
 
-      }
+      // }
       if(data){
         res.render('index', { data:data,name:name });
       }
