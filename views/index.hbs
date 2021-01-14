@@ -91,12 +91,11 @@
 									  <li class="nav-item"><a href="/signup" class="nav-link ">{{Register}}</a></li>
 
                                     <li class="nav-item"><a href="/cart" class="nav-link">Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                        </li>
                                        
                                       {{!-- <li class="nav-item"><a href="index.html" class="nav-link text-success "><i class="fa fa-user" aria-hidden="true"></i></a></li> --}}
                                        
-                                   <li class="nav-item">
-                                       <div class="dropdown">
-                                        <a class="btn btn-secondary dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  
                                            {{#if name}}
                                            
                                             {{name}}
@@ -104,14 +103,20 @@
                                             {{else}}
                                             Account
                                             {{/if}}
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="/login">Login</a>
-                                            <a class="dropdown-item" href="/logout">Logout</a>
-                                            <a class="dropdown-item" href="/signup">Register</a>
-                                        </div>
-                                        </div>
-                                        </li>
+                                        
+
+                                        <li class="nav-item"><a href="#" class="nav-link text-primary">Account<i class="fas fa-chevron-down"></i></a>
+                                                <ul class="dropdown-menu">
+                                                <li class="nav-item"><a class="dropdown-item" href="/login">Login</a><i class="fas fa-caret-right"></i>&nbsp;Login</a>
+                                                <li class="nav-item"><a class="dropdown-item" href="/logout">Logout</a><i class="fas fa-caret-right"></i>&nbsp;Logout</a>
+
+                                                <li class="nav-item"><a class="dropdown-item" href="/signup">Register</a><i class="fas fa-caret-right"></i>&nbsp;Register</a>
+
+                                                </ul>
+                                       </li>
+
+
+
                                    
                     </div>
                 </div>
