@@ -74,7 +74,7 @@ const getAppCookies = (req) => {
         
           if(Mytoken===undefined){
                       console.log("No token ")
-                      res.render('login')
+                      res.redirect('/')
                 }
         
                 else{
@@ -83,7 +83,7 @@ const getAppCookies = (req) => {
                    jwt.verify(Mytoken, process.env.SECRET_KEY,(err,decoded)=>{
                          if(err){
                                console.log("Token validity expired")
-                               res.render('login')
+                               res.redirect('/')
                          }
                          else{
                               // console.log(decoded)
