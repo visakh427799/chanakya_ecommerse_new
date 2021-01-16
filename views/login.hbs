@@ -3,7 +3,8 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <meta name="google-signin-client_id" content="342607950887-dtqd7uqnu182rmfhtii2mg7cdr7dhei4.apps.googleusercontent.com">
+        
         <!-- Bootstrap Min CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <!-- Animation Min CSS -->
@@ -37,16 +38,15 @@
 	<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-storage.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
     <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
-
-
+   
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" type="text/css" />
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
 
 <!-- Include a polyfill for ES6 Promises (optional) for IE11 -->
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
-<script type="module">
-  import Swal from 'sweetalert2/src/sweetalert2.js'
-</script>
-        <title>Chanakya - Online Mental Health Service Platform</title>
+
+        <title>Chanakya - Ecommerce</title>
 
         <link rel="icon" type="image/png" href="assets/img/favicon.png">
     </head>
@@ -159,9 +159,16 @@
 
                                   <button type="submit" class="btn btn-primary">Login <i class="flaticon-right-chevron"></i></button>
                                     
+                                    <div class="row">
                                        
-                                        
-                                    
+                                         <div class="col-md-6">
+                        <h5>Login with google</h5>    
+                         <div class="g-signin2" onClick="onSignIn()"></div>
+                    </div>
+
+
+                                    </div>
+
                                 </div>
                                 <h5 class="text-danger">{{message}}</h5>
                             </form>
@@ -177,6 +184,56 @@
         <div class="go-top"><i class="fas fa-chevron-up"></i></div>
         
         <!-- jQuery Min JS -->
+
+
+          <script>
+
+
+        function onSignIn(googleUser) {
+
+          var id_token = googleUser.getAuthResponse().id_token;
+          
+
+          const todo = {
+            title: 'test'
+             };
+
+            fetch('/google', {
+                    method: 'POST',
+                    body: JSON.stringify(todo),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                        token        : id_token
+                    }
+                })
+                .then(response => response.json())
+                .then(json => {
+                    console.log(json);
+                    signOut();
+                });
+
+                        
+                     /* var profile = googleUser.getBasicProfile();
+                      console.log("hiii")
+                      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                      console.log('Name: ' + profile.getName());
+                      console.log('Image URL: ' + profile.getImageUrl());
+                      console.log('Email: ' + profile.getEmail());*/
+          }    
+       </script>
+
+    
+       <script>
+              function signOut() {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                  console.log('User signed out.');
+
+                });
+            }
+
+      </script>
+
         <script src="assets/js/jquery.min.js"></script>
         <!-- Popper Min JS -->
         <script src="assets/js/popper.min.js"></script>
@@ -210,6 +267,7 @@
         <script src="assets/js/main.js"></script>
         <!--loader.js-->
         <script src="assets/js/loader.min.js"></script>
+        
     </body>
 </html>
 

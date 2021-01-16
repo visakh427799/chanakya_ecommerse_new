@@ -12,8 +12,8 @@ const remove_cart=require('../controllers/remove_from_cart_controll');
 const admin_users=require('../controllers/all_user_show_controll');
 const cart_minus = require('../controllers/minus_cart_number_controll');
 const All_order=require('../controllers/all_orders_show_controll');
-
-
+const GoogleAuth= require('../controllers/google_auth_control');
+const Items_add = require('../controllers/items_add_control')
 const getAppCookies = (req) => {
   // We extract the raw cookies from the request headers
   if( req.headers.cookie)
@@ -180,7 +180,7 @@ router.get('/signup', function(req, res, next) {
 
 router.get('/login', tokenVerify,function(req, res, next) {
  
-       res.render('login', { message: "" });
+       res.redirect('/');
 });
 router.get('/admin',admintokenVerify,(req,res)=>{
   items.find({},(err,data)=>{
@@ -208,9 +208,9 @@ router.get('/cart',tokenVerify,showCart.Cart_show);
 router.get('/addcartitem/:id',cart_plus.addNumber);
 router.get('/minuscartitem/:id',cart_minus.minusCart);
 router.get('/removecartitem/:id',remove_cart.removeCart);
-router.get('/admin/allusers',tokenVerify,admin_users.UserShow)
-router.get('/admin/allorders',tokenVerify,All_order.All_orders)
-router.get('/admin/add-products',tokenVerify,(req,res)=>{
+router.get('/admin/allusers',admintokenVerify,admin_users.UserShow)
+router.get('/admin/allorders',admintokenVerify,All_order.All_orders)
+router.get('/admin/add-products',admintokenVerify,(req,res)=>{
       res.render('admin_addproducts');
     }) ;
 router.get('/logout',(req,res)=>{
@@ -227,6 +227,6 @@ router.get('/adminlogout',(req,res)=>{
 
 router.post('/signup',Sign.Signup);
 router.post('/login',Log.Login);
-
-
+router.post('/google',GoogleAuth.GoogAuth);
+router.post('/additems',Items_add.ItemAdd);
 module.exports = router;

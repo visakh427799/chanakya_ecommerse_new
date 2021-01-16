@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="assets/css/loader.css">
         <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:900&display=swap" rel="stylesheet">
 
-        <title>Chanakya - Online Mental Health Service Platform</title>
+        <title>Chanakya - Ecommerce </title>
 
         <link rel="icon" type="image/png" href="assets/img/favicon.png">
 		<script src="https://use.fontawesome.com/acbb0fac19.js"></script>
@@ -107,10 +107,36 @@
                                             {{/if}}
                                             <i class="fas fa-chevron-down"></i></a>
                                                 <ul class="dropdown-menu">
-                                                <li class="nav-item"><a class="dropdown-item" href="/login">Login</a></li>
-                                                <li class="nav-item"><a class="dropdown-item" href="/logout">Logout</a></li>
 
-                                                <li class="nav-item"><a class="dropdown-item" href="/signup">Register</a></li>
+                                                     {{#if name}}
+                                           
+                                                     {{else}}
+                                                           <li class="nav-item"><a class="dropdown-item" href="/login">Login</a></li>
+                                           
+                                                      {{/if}}
+                                               
+                                               
+                                               
+                                                 {{#if name}}
+                                           
+                                                <li class="nav-item"><a class="dropdown-item" href="/logout">Logout </a></li>
+
+                                          
+                                                 {{/if}}
+                                               
+                                                   
+                                              
+                                                
+                                                {{#if name}}
+                                           
+                                                    {{else}}
+                                                      <li class="nav-item"><a class="dropdown-item" href="/signup">Register</a></li>
+
+                                          
+                                          
+                                                  {{/if}}
+                                            
+                                            
                                                 </ul>
                                        </li>
 
@@ -120,17 +146,25 @@
                     </div>
                 </div>
             </div>
-            <!-- End Navbar Area -->
 
+     
         <!-- Start Page Title Area -->
         <section class="page-title-area page-title-bg1">
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="page-title-content">
-                           
+                            <div class="row">
+                                <div class="col-md-6">
+                                 <img src="assets/img/page-title/9.png"/>
+                                </div>
+                                <div class="col-md-6">
+                                      <h2 class="text-white mt-5" >Chanakya Online Shop</h2>
+                                </div>
+                            </div>
+                         
                             <ul>
-                                <li class="text-white"><a href="index.html">Home</a></li>
+                                <li class="text-success"><a href="/">Home</a></li>
                                 <li class="text-white">Shop</li>
                             </ul>
                         </div>
@@ -173,8 +207,8 @@
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="single-product-box">
                                                 <div class="product-image">
-                                                    <a href="/chanakya/products/whitebook.html">
-                                                        <img src="{{this.itm_image}}" alt="image">
+                                                    <a href="/product/{{this._id}}">
+                                                        <img src="assets/img/{{this.itm_image}}" alt="image">
                                                         {{!-- <img src="assets/img/shop/1-1.jpg" alt="image"> --}}
                                                     </a>
                                                 

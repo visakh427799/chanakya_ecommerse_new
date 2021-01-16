@@ -1,0 +1,99 @@
+<head>
+        <!-- Required meta tags -->
+        
+
+           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+		<script src="https://use.fontawesome.com/acbb0fac19.js"></script>
+    </head>
+
+    <body>
+
+        <!-- Preloader -->
+         {{!-- <div id="loader">
+            <img src="assets/img/loader1.gif" alt="loading">
+            <h1 class="title">Just Breathe ...</h1>
+            
+
+
+        </div> --}}
+        <!-- End Preloader -->
+
+           <section>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand text-danger" href="/admin">Ecart Admin panel</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/admin"> All Products</a>
+              </li>
+             
+
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/allorders">All orders</a>
+              </li>
+              
+              
+
+              
+            </ul>
+            <div class="dropdown">
+              
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/logout">Admin</a>
+                <a class="dropdown-item" href="/logout">User</a>
+               
+              </div>
+            </div>
+              
+          
+
+          </div>
+        </div>
+      </nav>
+
+
+
+     </section>
+
+<a class="btn btn-success m-4" href="/admin/add-products">Add products</a>
+<center><h4 class="text-warning">ALL USERS</h4></center>
+<section>
+    <div class="row m-3">
+        <table class="table">
+            <thead class=" table-dark">
+              <tr>
+                <th scope="col">User-name</th>
+                <th scope="col">User-Email</th>
+                <th scope="col">User-Phone</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+
+       {{#each data}} 
+
+              <tr>
+               
+                <td>{{this.username}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.phone}}</td>
+                
+              </tr>
+        {{/each}}   
+            </tbody>
+          </table>
+
+    </div>
+</section>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

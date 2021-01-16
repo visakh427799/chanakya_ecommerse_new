@@ -4,11 +4,12 @@ const User   = require('../model/user_model');
 
 
 
+
 const GoogAuth=(req,res,next)=>{
 const jwt     =require('jsonwebtoken')
    //receiving google token from client side
    let token=req.headers.token;
-   //console.log(token)
+   console.log(token)
    //call verifyToken function
 
    async function verify() {
@@ -30,7 +31,7 @@ const jwt     =require('jsonwebtoken')
          password:null,
     
        }
-       console.log(userobj);
+      // console.log(userobj);
        //saving values in mongodb
                      User.findOne({email:email},(err,data)=>{
                         if(data){
@@ -49,7 +50,7 @@ const jwt     =require('jsonwebtoken')
                             })
                             console.log(token );
                             res.cookie('token',token);
-                            res.redirect('/login')
+                            res.redirect('/')
                             
                            /* res.json({
                                 "Message":"An account with this email id already exist  and cokie set"
@@ -85,7 +86,7 @@ const jwt     =require('jsonwebtoken')
                                     console.log(token)
                                     //res.send("Registration success and Cookie Set"); 
                                     
-                                    res.redirect('/login')
+                                    res.redirect('/')
                                      
                                     
                                    
