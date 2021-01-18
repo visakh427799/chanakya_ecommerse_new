@@ -71,10 +71,10 @@
                 </div>
 
                 <div class="fovia-nav">
-                    <div class="container">
+                    
                         <nav class="navbar navbar-expand-md navbar-light">
                             <a class="navbar-brand" href="/">
-                                <img src="products/assets/img/logo.png" alt="logo">
+                                <img src="/product/products/assets/img/logo.png" alt="logo">E-shop
                             </a>
 
                             <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -83,17 +83,19 @@
                                     
                                     <li class="nav-item"><a href="#" class="nav-link">Shop by products</a>
                                         <ul class="dropdown-menu">
-                                         <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-caret-right"></i>&nbsp;Books</a>
-                                         <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-caret-right"></i>&nbsp;Mobile cases</a>
+                                         <li class="nav-item"><a href="/Books" class="nav-link"><i class="fas fa-caret-right"></i>&nbsp;Books</a>
+                                         <li class="nav-item"><a href="/Mobile phones" class="nav-link"><i class="fas fa-caret-right"></i>&nbsp;Mobile cases</a>
 
-                                          <li class="nav-item"><a href="webinars.html" class="nav-link"><i class="fas fa-caret-right"></i>&nbsp;Shoes</a>
+                                          <li class="nav-item"><a href="/T-shirts" class="nav-link"><i class="fas fa-caret-right"></i>&nbsp;T-Shirts</a>
 
                                         </ul>
                                     </li>
 
 								
 
-                                    <li class="nav-item"><a href="/cart" class="nav-link">Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                    <li class="nav-item"><a href="/cart" class="nav-link">Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;<h4 class="badge badge-primary">{{num}}</h4></a>
+                                        </li>
+                                        <li class="nav-item"><a href="/" class="nav-link">Track your order</a>
                                         </li>
                                        
                                       {{!-- <li class="nav-item"><a href="index.html" class="nav-link text-success "><i class="fa fa-user" aria-hidden="true"></i></a></li> --}}
@@ -144,33 +146,19 @@
                                                 </ul>
                                        </li>
 
-                </ul>
 
 
-
-                                        <div class="search-overlay search-popup">
-                                            <div class='search-box'>
-                                                <form class="search-form">
-                                                    <input class="search-input" name="search" placeholder="Search" type="text">
-
-                                                    <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <a href="/" class="btn btn-primary">Contact Us</a>
-                                </div>
-                            </div>
-
+                                   
                     </div>
                 </div>
             </div>
+
             <!-- End Navbar Area -->
         </header>
         <!-- End Header Area -->
 
         <!-- Start Page Title Area -->
+        {{#if data}}
         <section class="page-title-area page-title-bg2">
             <div class="d-table">
                 <div class="d-table-cell">
@@ -195,7 +183,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12">
                         <div class="product-details-image">
-                            <img src="{{data.itm_image}}" alt="image" >
+                            <img src="/product/products/assets/img/m-kj-rn-f603-stndrd-blkantrmlgwt-killer-original-imafwg9qjfmsx78m.jpeg" alt="image" >
                         </div>
                     </div>
 
@@ -230,7 +218,7 @@
                                 <a type="submit" href="/addtocart/{{data._id}}" class="btn btn-primary"><i class="fas fa-cart-plus"></i> Add to Cart</a>
                                
                             </div>
-
+{{/if}}
                             <div class="buy-checkbox-btn">
                                 <div class="item">
                                     <input class="inp-cbx" id="cbx" type="checkbox">

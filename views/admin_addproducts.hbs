@@ -42,12 +42,12 @@
                 Account
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/logout">Admin</a>
-                <a class="dropdown-item" href="/logout">User</a>
+              
+                <a class="dropdown-item" href="/logout">Logout</a>
                
               </div>
             </div>
-              <h6>Admin</h6>
+             
           
 
           </div>
@@ -74,45 +74,69 @@
 </html>
 <div class="section bg-light ">
     <div class="row align-content-center bg-light pl-lg-5 " >
-        <div class="col-md-2 p-4 bg-light " >
-
+        <div class="col-md-6 p-4 bg-light " >
+             <h3 class="text-info text-center">ADD CATEGORIES</h3>
+            <form action="/addcat" method="POST">
+               
+                <div class="form-row ">
+                  <div class="form-group col-md-12">
+                    <label for="inputEmail4">Item category</label>
+                     <input type="text" class="form-control"  name="name"   required >
+                  </div>
+                  
+                   <div class="form-group col-md-12">
+                    <label for="inputEmail4">Item image </label>
+                    <input type="file" class="form-control"  name="img"  accept="image/png, image/jpeg" required >
+ 
+                  </div>
+                </div>
+                   <div class="mt-2">
+                <button  type="submit"  class="btn btn-success">Add Category</button>
+            </div>
+              </form>
         </div>
-         <div class="col-md-8 p-4 bg-light ml-5 " >
+         <div class="col-md-6 p-4 bg-light ml-5 " >
             <h3 class="text-success text-center">ADD PRODUCTS</h3>
             <form action="/additems" method="POST">
                
                 <div class="form-row ">
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-12">
                     <label for="inputEmail4">Item name</label>
                     <input type="text" class="form-control"  name="inputName"  required>
                   </div>
                   
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-12">
                     <label for="inputEmail4">Item category</label>
-                    <input type="text" class="form-control"  name="inputCategory"  required>
+                    {{!-- <input type="text" class="form-control"  name="inputCategory"  required> --}}
+                        <select name="inputCategory" class="form-control">
+                          {{#each dat}}
+                            <option value="{{this.cat_name}}">{{this.cat_name}}</option>
+                          {{/each}}
+                          </select>
+
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-12">
                     <label for="inputPassword4">Item prize</label>
                     <input type="number" class="form-control  " name="inputPrize"   required>
                   </div>
                   
                   
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-12">
                     <label for="inputEmail4">Item image </label>
                     <input type="file" class="form-control"  name="inputImg"  accept="image/png, image/jpeg" required >
  
                   </div>
                   
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-12">
                     <label for="inputEmail4">Item description</label>
                     <input type="text" class="form-control"  name="inputDesc"  required>
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-12">
                     <label for="inputEmail4">Item stock</label>
                     <input type="number" class="form-control"  name="inputStock"  required>
                   </div>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                     <label for="inputEmail4">Item availability</label>
                     <input type="checkbox"  value="yes" name="inputAvail" >
                   </div>
@@ -120,7 +144,7 @@
                
                 
                 <div class="mt-2">
-                <button  type="submit"  class="btn btn-primary">Add Item</button>
+                <button  type="submit"  class="btn btn-success">Add Item</button>
             </div>
             </form>
 

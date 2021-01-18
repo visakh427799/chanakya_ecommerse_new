@@ -4,6 +4,7 @@ var jwt    = require('jsonwebtoken')
 var items = require('../model/items_model');
 var Sign  = require('../controllers/register_control');
 var Log   = require('../controllers/login_control');
+var Cart  = require('../model/cart_model')
 const cartAdd    = require('../controllers/cart_add_control');
 const showProduct =require('../controllers/product_show_control');
 const showCart    =require('../controllers/cart_show_controll');
@@ -13,7 +14,9 @@ const admin_users=require('../controllers/all_user_show_controll');
 const cart_minus = require('../controllers/minus_cart_number_controll');
 const All_order=require('../controllers/all_orders_show_controll');
 const GoogleAuth= require('../controllers/google_auth_control');
-const Items_add = require('../controllers/items_add_control')
+const Items_add = require('../controllers/items_add_control');
+const Category  = require('../controllers/add_cat_controll');
+const Cat       = require('../model/category_model')
 const getAppCookies = (req) => {
   // We extract the raw cookies from the request headers
   if( req.headers.cookie)
@@ -34,7 +37,7 @@ const getAppCookies = (req) => {
 //token verification middleware
   function tokenVerify(req,res,next){
   let Mytoken = getAppCookies(req);
-    console.log(Mytoken);
+    // console.log(Mytoken);
   
 
   if(Mytoken===undefined){
@@ -69,7 +72,7 @@ const getAppCookies = (req) => {
 
         function admintokenVerify(req,res,next){
           let Mytoken = getAppCookies(req);
-            console.log(Mytoken);
+            // console.log(Mytoken);
           
         
           if(Mytoken===undefined){
@@ -149,30 +152,29 @@ router.get('/',getUser, function(req, res, next) {
 if(res.user){
    let payload=res.user;
    var name=payload.username.name;
+   var u_id=payload.username.u_id
 }
-  items.find({},(err,data)=>{
+  Cat.find({},(err,data)=>{
 
-      // if(res.user) {
-      //   console.log(res.user)
-      // }
-      // else{
-        
-      //   console.log("jii")
-
-      // }
       if(data){
-        res.render('index', { data:data,name:name });
-      }
-      // else{
-      //   res.render('index', { data:arr });
-      // }
-  })
+       
+          Cart.find({user_id:u_id},(err,dat)=>{
+            let num=dat.length;    
+            res.render('index', { data:data,name:name,num:num});
+                  })
+
+                }
+      })
+   
 
   
   
 });
+ router.get('/category/:category',getUser, function(req, res, next) {
+        var cat=req.params.category;
+        console.log(cat);
 
-
+ });
 router.get('/signup', function(req, res, next) {
  
        res.render('signup', { message: "" });
@@ -211,7 +213,15 @@ router.get('/removecartitem/:id',remove_cart.removeCart);
 router.get('/admin/allusers',admintokenVerify,admin_users.UserShow)
 router.get('/admin/allorders',admintokenVerify,All_order.All_orders)
 router.get('/admin/add-products',admintokenVerify,(req,res)=>{
-      res.render('admin_addproducts');
+        Cat.find({},(err,data)=>{
+            if(data){
+              res.render('admin_addproducts',{dat:data});
+            }
+            else if(err){
+              res.render('admin_addproducts');
+            }
+        })
+      
     }) ;
 router.get('/logout',(req,res)=>{
       res.clearCookie('token');
@@ -229,4 +239,5 @@ router.post('/signup',Sign.Signup);
 router.post('/login',Log.Login);
 router.post('/google',GoogleAuth.GoogAuth);
 router.post('/additems',Items_add.ItemAdd);
+router.post('/addcat',Category.Category_add);
 module.exports = router;

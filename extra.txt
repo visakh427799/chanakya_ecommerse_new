@@ -1,0 +1,36 @@
+ <div class="row">
+
+                    {{#each data}}
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-product-box">
+                                                <div class="product-image">
+                                                    <a href="/product/{{this._id}}">
+                                                        <img src="assets/img/{{this.itm_image}}" alt="image">
+                                                        {{!-- <img src="assets/img/shop/1-1.jpg" alt="image"> --}}
+                                                    </a>
+                                                
+                                                    <a href="/addtocart/{{this._id}}" class="add-to-cart-btn ">Add To Cart <i class="flaticon-shopping-bag"></i></a>
+                                                </div>
+
+                                           <div class="product-content">
+                                                <h3><a href="/product/{{this._id}}" >{{this.itm_name}}</a></h3>
+                                                <div class="price">
+                                                    <span class="new">Rs.{{this.itm_prize}} /-</span>
+                                                    <span class="old">{{item.prize}}</span>
+                                                </div>
+                                                <div class="rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                           </div>
+                                </div>
+                        </div>   
+
+               {{/each}}
+                                
+
+
+                    </div>
