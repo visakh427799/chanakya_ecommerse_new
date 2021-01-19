@@ -183,7 +183,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12">
                         <div class="product-details-image">
-                            <img src="/product/products/assets/img/m-kj-rn-f603-stndrd-blkantrmlgwt-killer-original-imafwg9qjfmsx78m.jpeg" alt="image" >
+                            <img src="/assets/img/{{data.itm_image}}" alt="image" >
                         </div>
                     </div>
 
@@ -276,7 +276,7 @@
                                     <div class="tab_content">
                                         <div class="tabs_item">
                                             <div class="products-details-tab-content">
-                                                <p>Design inspiration lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum.  Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus pharetra posuere sapien. Nam consectetuer. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim nibh eget ipsum. Nam consectetuer. Sed aliquam, nunc eget euismod ullamcorper, lectus nunc ullamcorper orci, fermentum bibendum enim nibh eget ipsum. Nulla libero. Vivamus pharetra posuere sapien.</p>
+                                                <p>{{data.itm_description}}</p>
                                             </div>
                                         </div>
 
@@ -411,97 +411,46 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
                     </div>
 
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-product-box">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img src="products/assets/img/shop/1.jpg" alt="image">
-                                        <img src="products/assets/img/shop/1-1.jpg" alt="image">
-                                    </a>
+                   <div class="row">
 
-                                    <a href="#" class="add-to-cart-btn">Add To Cart <i class="flaticon-shopping-basket"></i></a>
+                    {{#each similar}}
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="single-product-box">
+                                                <div class="product-image">
+                                                    <a href="/product/{{this._id}}">
+                                                        <img src="/assets/img/{{this.itm_image}}" alt="image">
+                                                        {{!-- <img src="/assets/img/shop/1-1.jpg" alt="image"> --}}
+                                                    </a>
+                                                
+                                                    <a href="/addtocart/{{this._id}}" class="add-to-cart-btn ">Add To Cart <i class="flaticon-shopping-bag"></i></a>
+                                                </div>
+
+                                           <div class="product-content">
+                                                <h3><a href="/product/{{this._id}}" >{{this.itm_name}}</a></h3>
+                                                <div class="price">
+                                                    <span class="new">Rs.{{this.itm_prize}} /-</span>
+                                                    <span class="old">{{item.prize}}</span>
+                                                </div>
+                                                <div class="rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                           </div>
                                 </div>
+                        </div>   
 
-                                <div class="product-content">
-                                    <h3><a href="#">White Book</a></h3>
-                                    <div class="price">
-                                        <span class="new">$8.50</span>
-                                        <span class="old">$12.50</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+               {{/each}}
+                                
 
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-product-box">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img src="products/assets/img/shop/2.jpg" alt="image">
-                                        <img src="products/assets/img/shop/2-1.jpg" alt="image">
-                                    </a>
 
-                                    <a href="#" class="add-to-cart-btn">Add To Cart <i class="flaticon-shopping-basket"></i></a>
-
-                                    <div class="sale-btn">Sale!</div>
-                                </div>
-
-                                <div class="product-content">
-                                    <h3><a href="#">Red Side Book</a></h3>
-                                    <div class="price">
-                                        <span class="new">$12.50</span>
-                                        <span class="old">$20.50</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="single-product-box">
-                                <div class="product-image">
-                                    <a href="#">
-                                        <img src="products/assets/img/shop/3.jpg" alt="image">
-                                        <img src="products/assets/img/shop/3-1.jpg" alt="image">
-                                    </a>
-
-                                    <a href="#" class="add-to-cart-btn">Add To Cart <i class="flaticon-shopping-basket"></i></a>
-                                </div>
-
-                                <div class="product-content">
-                                    <h3><a href="#">Book With Pen</a></h3>
-                                    <div class="price">
-                                        <span class="new">$8.50</span>
-                                        <span class="old">$12.50</span>
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Product Details Area -->
+
+        </div>
+        </div>
+</section>
 
         <!-- Start Footer Area -->
         <section class="footer-area">

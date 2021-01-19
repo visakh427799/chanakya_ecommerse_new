@@ -20,7 +20,7 @@ const Cart_show=async (req,res,next)=>{
            k++;
        })
 
-          res.render('cart_show',{data,k,name})
+          res.render('cart_show',{data,k,sum,name})
 
     }
     })

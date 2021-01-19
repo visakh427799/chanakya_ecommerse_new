@@ -50,7 +50,7 @@ const jwt     =require('jsonwebtoken')
                             })
                             console.log(token );
                             res.cookie('token',token);
-                            res.redirect('/')
+                            res.json({"login":true})
                             
                            /* res.json({
                                 "Message":"An account with this email id already exist  and cokie set"
@@ -86,7 +86,7 @@ const jwt     =require('jsonwebtoken')
                                     console.log(token)
                                     //res.send("Registration success and Cookie Set"); 
                                     
-                                    res.redirect('/')
+                                    res.json({"login":true})
                                      
                                     
                                    

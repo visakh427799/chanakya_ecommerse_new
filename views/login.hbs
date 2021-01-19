@@ -1,278 +1,281 @@
-
 <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="google-signin-client_id" content="342607950887-dtqd7uqnu182rmfhtii2mg7cdr7dhei4.apps.googleusercontent.com">
-        
-        <!-- Bootstrap Min CSS -->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <!-- Animation Min CSS -->
-        <link rel="stylesheet" href="assets/css/animate.min.css">
-        <!-- Font Awesome Min CSS -->
-        <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-        <!-- Owl Carousel Min CSS -->
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <!-- Slick Min CSS -->
-        <link rel="stylesheet" href="assets/css/slick.min.css">
-        <!-- Nice Select CSS -->
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <!-- Magnific Popup Min CSS -->
-        <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
-		<!-- Odometer Min CSS -->
-		<link rel="stylesheet" href="assets/css/odometer.min.css">
-        <!-- FlatIcon CSS -->
-        <link rel="stylesheet" href="assets/css/flaticon.css">
-        <!-- Mean Menu CSS -->
-        <link rel="stylesheet" href="assets/css/meanmenu.css">
-        <!-- Style CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
-        <!-- Responsive CSS -->
-        <link rel="stylesheet" href="assets/css/responsive.css">
-        <!--preloader-->
-        <link rel="stylesheet" href="assets/css/loader.css">
-        <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:900&display=swap" rel="stylesheet">
-	<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-storage.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="google-signin-client_id"
+        content="342607950887-dtqd7uqnu182rmfhtii2mg7cdr7dhei4.apps.googleusercontent.com">
+
+    <!-- Bootstrap Min CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Animation Min CSS -->
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <!-- Font Awesome Min CSS -->
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <!-- Owl Carousel Min CSS -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <!-- Slick Min CSS -->
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <!-- Magnific Popup Min CSS -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+    <!-- Odometer Min CSS -->
+    <link rel="stylesheet" href="assets/css/odometer.min.css">
+    <!-- FlatIcon CSS -->
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <!-- Mean Menu CSS -->
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!--preloader-->
+    <link rel="stylesheet" href="assets/css/loader.css">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:900&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
     <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
-   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" type="text/css" />
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
 
-<!-- Include a polyfill for ES6 Promises (optional) for IE11 -->
-<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" type="text/css" />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="sweetalert2/dist/sweetalert2.all.min.js"></script>
 
-        <title>Chanakya - Ecommerce</title>
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11 -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
 
-        <link rel="icon" type="image/png" href="assets/img/favicon.png">
-    </head>
-    
+    <title>Chanakya - Ecommerce</title>
 
-    <body>
-
-         <!-- Preloader -->
-         <div id="loader">
-            <img src="assets/img/loader1.gif" alt="loading">
-            <h1 class="title">Just A Minute ...</h1>
-           
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+</head>
 
 
-        </div>
-        <!-- End Preloader -->
-                      <!-- Start Navbar Area -->
-                      <div class="navbar-area">
-                        <div class="fovia-responsive-nav">
-                            <div class="container">
-                                <div class="fovia-responsive-menu">
-                                    <div class="logo">
-                                        <a href="index.html">
-                                            <img src="assets/img/logo.png" alt="logo">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="fovia-nav">
-                            
-                                <nav class="navbar navbar-expand-md navbar-light">
-                                    <a class="navbar-brand" href="index.html">
-                                        <img src="assets/img/logo.png" alt="logo">
-                                    </a>
-        
-                                    <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                                        <ul class="navbar-nav">
-                                            <li class="nav-item"><a href="/" class="nav-link ">Home</a></li>
-                                            <li class="nav-item"><a href="/signup" class="nav-link ">Register</a></li>
-                                        </ul>   
-                                            
-                                    </div>
-                                        
-                                        
-                                    </div>
-        
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Navbar Area -->
+<body>
 
-    
+    <!-- Preloader -->
+    <div id="loader">
+        <img src="assets/img/loader1.gif" alt="loading">
+        <h1 class="title">Just A Minute ...</h1>
 
- 
-        </header>
-        <!-- End Header Area -->
 
-        <!-- Start Page Title Area -->
-        
-        <!-- End Page Title Area -->
 
-        <!-- Start Contact Area -->
-        <h2 class="text-center">Login</h2>
-        <section class="contact-area ptb-70">
-            
-            
+    </div>
+    <!-- End Preloader -->
+    <!-- Start Navbar Area -->
+    <div class="navbar-area">
+        <div class="fovia-responsive-nav">
             <div class="container">
-                
-                <div class="row">
-
-
-                    <div class="col-lg-6 col-md-6">
-                        
-                     
-                           
-                               <img src="assets/img/abc.png" alt="image">
-
-
-                     
-                    </div>
-
-                    <div class="col-lg-5 col-md-6 mt-5">
-                       
-
-                            <form action="/login" method="POST">
-                                <div class="row">
-                                    
-
-                                    <div class="col-lg-12 col-md-12">
-                                            <div class="form-group">
-                                            <input type="email" name="email" id="email" class="form-control" required data-error="Please enter your email" placeholder="Email">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-
-                               </div>
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                             <input type="password" name="pass" id="phone_number" required data-error="Please enter your password" class="form-control" placeholder="Confirm password">
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                    </div>
-
-                                    
-                                </div>    
-                                          
-
-                                  <button type="submit" class="btn btn-primary">Login <i class="flaticon-right-chevron"></i></button>
-                                    
-                                    <div class="row">
-                                       
-                                         <div class="col-md-6">
-                        <h5>Login with google</h5>    
-                     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                    </div>
-
-
-                                    </div>
-
-                                </div>
-                                <h5 class="text-danger">{{message}}</h5>
-                            </form>
+                <div class="fovia-responsive-menu">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/img/logo.png" alt="logo">
+                        </a>
                     </div>
                 </div>
             </div>
-            
-            <div class="bg-map"><img src="assets/img/bg-map.png" alt="image"></div>
-        </section>
-        
-        <!-- End Footer Area -->
+        </div>
 
-        <div class="go-top"><i class="fas fa-chevron-up"></i></div>
-        
-        <!-- jQuery Min JS -->
+        <div class="fovia-nav">
+
+            <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/img/logo.png" alt="logo">
+                </a>
+
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="/" class="nav-link ">Home</a></li>
+                        <li class="nav-item"><a href="/signup" class="nav-link ">Register</a></li>
+                    </ul>
+
+                </div>
 
 
-          <script>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    <!-- End Navbar Area -->
+
+
+
+
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Page Title Area -->
+
+    <!-- End Page Title Area -->
+
+    <!-- Start Contact Area -->
+    <div class="mt-2"><h2 class="text-center">Login</h2></div>
+    <section class="contact-area ptb-70">
+
+
+        <div class="container">
+
+            <div class="row">
+
+
+                <div class="col-lg-6 col-md-6">
+
+
+
+                    <img src="assets/img/abc.png" alt="image">
+
+
+
+                </div>
+
+                <div class="col-lg-5 col-md-6 mt-5">
+
+
+                    <form action="/login" method="POST">
+                        <div class="row">
+
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <input type="email" name="email" id="email" class="form-control" required
+                                        data-error="Please enter your email" placeholder="Email">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <input type="password" name="pass" id="phone_number" required
+                                        data-error="Please enter your password" class="form-control"
+                                        placeholder="Confirm password">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Login <i
+                                class="flaticon-right-chevron"></i></button>
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <h5>Login with google</h5>
+                                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                            </div>
+
+
+                        </div>
+
+                </div>
+                <h5 class="text-danger">{{message}}</h5>
+                </form>
+            </div>
+        </div>
+        </div>
+
+        <div class="bg-map"><img src="assets/img/bg-map.png" alt="image"></div>
+    </section>
+
+    <!-- End Footer Area -->
+
+    <div class="go-top"><i class="fas fa-chevron-up"></i></div>
+
+    <!-- jQuery Min JS -->
+
+
+    <script>
 
 
         function onSignIn(googleUser) {
 
-          var id_token = googleUser.getAuthResponse().id_token;
-          
+            var id_token = googleUser.getAuthResponse().id_token;
 
-          const todo = {
-            title: 'test'
-             };
+
+            const todo = {
+                title: 'test'
+            };
 
             fetch('/google', {
-                    method: 'POST',
-                    body: JSON.stringify(todo),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8',
-                        token        : id_token
-                    }
-                })
-                .then(response => response.json())
-                .then(json => {
-                    console.log(json);
-                    signOut();
+                method: 'POST',
+                body: JSON.stringify(todo),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                    token: id_token
+                }
+            })
+                .then((response)=>{
+                     console.log(response.ok)
+
+                     if(response.ok){
+                         location.href='/'
+                     }
                 });
+                
+             
 
-                        
-                     /* var profile = googleUser.getBasicProfile();
-                      console.log("hiii")
-                      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-                      console.log('Name: ' + profile.getName());
-                      console.log('Image URL: ' + profile.getImageUrl());
-                      console.log('Email: ' + profile.getEmail());*/
-          }    
-       </script>
 
-    
-       <script>
-              function signOut() {
-                var auth2 = gapi.auth2.getAuthInstance();
-                auth2.signOut().then(function () {
-                  console.log('User signed out.');
+            /* var profile = googleUser.getBasicProfile();
+             console.log("hiii")
+             console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+             console.log('Name: ' + profile.getName());
+             console.log('Image URL: ' + profile.getImageUrl());
+             console.log('Email: ' + profile.getEmail());*/
+        }    
+    </script>
 
-                });
-            }
 
-      </script>
+    <script>
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
 
-        <script src="assets/js/jquery.min.js"></script>
-        <!-- Popper Min JS -->
-        <script src="assets/js/popper.min.js"></script>
-        <!-- Bootstrap Min JS -->
-        <script src="assets/js/bootstrap.min.js"></script>
-        <!-- Owl Carousel Min JS -->
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <!-- Slick Min JS -->
-        <script src="assets/js/slick.min.js"></script>
-        <!-- Mean Menu JS -->
-        <script src="assets/js/jquery.meanmenu.js"></script>
-		<!-- Appear Min JS -->
-		<script src="assets/js/jquery.appear.min.js"></script>
-		<!-- Odometer Min JS -->
-        <script src="assets/js/odometer.min.js"></script>
-        <!-- Parallax Min JS -->
-        <script src="assets/js/parallax.min.js"></script>
-        <!-- Magnific Popup Min JS -->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <!-- Nice Select Min JS -->
-        <script src="assets/js/jquery.nice-select.min.js"></script>
-        <!-- WOW Min JS -->
-        <script src="assets/js/wow.min.js"></script>
-        <!-- AjaxChimp Min JS -->
-        <script src="assets/js/jquery.ajaxchimp.min.js"></script>
-        <!-- Form Validator Min JS -->
-        <script src="assets/js/form-validator.min.js"></script>
-        <!-- Contact Form Min JS -->
-        <script src="assets/js/contact-form-script.js"></script>
-        <!-- Main JS -->
-        <script src="assets/js/main.js"></script>
-        <!--loader.js-->
-        <script src="assets/js/loader.min.js"></script>
-        
-    </body>
+            });
+        }
+
+    </script>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- Popper Min JS -->
+    <script src="assets/js/popper.min.js"></script>
+    <!-- Bootstrap Min JS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Owl Carousel Min JS -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- Slick Min JS -->
+    <script src="assets/js/slick.min.js"></script>
+    <!-- Mean Menu JS -->
+    <script src="assets/js/jquery.meanmenu.js"></script>
+    <!-- Appear Min JS -->
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <!-- Odometer Min JS -->
+    <script src="assets/js/odometer.min.js"></script>
+    <!-- Parallax Min JS -->
+    <script src="assets/js/parallax.min.js"></script>
+    <!-- Magnific Popup Min JS -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Nice Select Min JS -->
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <!-- WOW Min JS -->
+    <script src="assets/js/wow.min.js"></script>
+    <!-- AjaxChimp Min JS -->
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <!-- Form Validator Min JS -->
+    <script src="assets/js/form-validator.min.js"></script>
+    <!-- Contact Form Min JS -->
+    <script src="assets/js/contact-form-script.js"></script>
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+    <!--loader.js-->
+    <script src="assets/js/loader.min.js"></script>
+
+</body>
+
 </html>
-
-
-
-
-
-

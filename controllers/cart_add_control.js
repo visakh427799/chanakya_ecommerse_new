@@ -28,20 +28,48 @@ const cart_add=(req,res,next)=>{
             item_nos:1,
             }
 
-   Cart.create(cart_obj,(err,data)=>{
-       if(err)
-       console.log(err)
+    // Cart.find({item_id:item_id},(err,dat)=>{
 
-       else
-       console.log("Added to cart");
-       Item.find({},(err,data)=>{
-        let payload=res.user;//taking value from decoded
-        let name=payload.username.name;
-           let info=true;
-        res.redirect('/')
-       })
-       
-   })
+    //    if(data){
+    //     let newnos=dat.item_nos+1;
+    //     Cart.updateOne({item_id:item_id},{$set: { "item_nos" :newnos}},
+    //     (err,data)=>{
+                  
+    //               if(!err){
+    //                   res.redirect('/cart')
+    //               }
+                
+                  
+    //     })
+
+    //    }
+
+
+
+
+    //    else{
+
+        Cart.create(cart_obj,(err,data)=>{
+            if(err)
+            console.log(err)
+     
+            else
+            console.log("Added to cart");
+            Item.find({},(err,data)=>{
+             let payload=res.user;//taking value from decoded
+             let name=payload.username.name;
+                let info=true;
+             res.redirect('/cart')
+            })
+            
+        })
+
+
+    //    }
+
+    // })
+
+
 
           }
 

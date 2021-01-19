@@ -10,8 +10,11 @@ const productShow=(req,res,next)=>{
      Items.findOne({_id:id},(err,data)=>{
 
          if(data){
-             console.log(data)
-             res.render('product',{data:data})
+             Items.find({itm_category:data.itm_category,_id: { $ne: id }},(err,dat)=>{
+                res.render('product',{data:data,similar:dat})
+             })
+             
+           
          }
      })
 

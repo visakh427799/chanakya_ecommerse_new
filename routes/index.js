@@ -173,6 +173,11 @@ if(res.user){
  router.get('/category/:category',getUser, function(req, res, next) {
         var cat=req.params.category;
         console.log(cat);
+        items.find({itm_category:cat},(err,dat)=>{
+            if(dat){
+              res.render('categories',{data:dat,cat:cat});
+            }
+        })
 
  });
 router.get('/signup', function(req, res, next) {
