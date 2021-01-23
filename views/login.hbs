@@ -169,6 +169,10 @@
                                 <h5>Login with google</h5>
                                 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
                             </div>
+                            <div class="col-md-12">
+                               
+                                <a href="#" onclick="signOut();">Sign out</a>
+                            </div>
 
 
                         </div>
@@ -191,8 +195,7 @@
 
 
     <script>
-
-
+  
         function onSignIn(googleUser) {
 
             var id_token = googleUser.getAuthResponse().id_token;
@@ -214,7 +217,10 @@
                      console.log(response.ok)
 
                      if(response.ok){
-                         location.href='/'
+                         {{!-- location.href='/' --}}
+                     }
+                     else{
+                         signOut();
                      }
                 });
                 
@@ -231,16 +237,15 @@
     </script>
 
 
-    <script>
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-                console.log('User signed out.');
-
-            });
-        }
-
-    </script>
+    
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
 
     <script src="assets/js/jquery.min.js"></script>
     <!-- Popper Min JS -->

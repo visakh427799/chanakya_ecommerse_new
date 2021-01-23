@@ -16,7 +16,13 @@ const All_order=require('../controllers/all_orders_show_controll');
 const GoogleAuth= require('../controllers/google_auth_control');
 const Items_add = require('../controllers/items_add_control');
 const Category  = require('../controllers/add_cat_controll');
-const Cat       = require('../model/category_model')
+const Cat       = require('../model/category_model');
+const placeOrdr = require('../controllers/placeorder_control');
+const userAdd   = require('../controllers/user_address_controll');
+const orders    = require('../controllers/order_control');
+const reviews   = require('../controllers/review_controll');
+const getReview = require('../controllers/getreviews_control');
+const cartNum   = require('../controllers/cart_number_return')
 const getAppCookies = (req) => {
   // We extract the raw cookies from the request headers
   if( req.headers.cookie)
@@ -77,7 +83,7 @@ const getAppCookies = (req) => {
         
           if(Mytoken===undefined){
                       console.log("No token ")
-                      res.redirect('/')
+                      res.render('login')
                 }
         
                 else{
@@ -86,7 +92,7 @@ const getAppCookies = (req) => {
                    jwt.verify(Mytoken, process.env.SECRET_KEY,(err,decoded)=>{
                          if(err){
                                console.log("Token validity expired")
-                               res.redirect('/')
+                               res.render('login')
                          }
                          else{
                               // console.log(decoded)
@@ -172,11 +178,27 @@ if(res.user){
 });
  router.get('/category/:category',getUser, function(req, res, next) {
         var cat=req.params.category;
+        if(res.user){
+          let payload=res.user;
+          var name=payload.username.name;
+          var u_id=payload.username.u_id
+       }
         console.log(cat);
         items.find({itm_category:cat},(err,dat)=>{
             if(dat){
-              res.render('categories',{data:dat,cat:cat});
+              if(name){
+              Cart.find({user_id:u_id},(err,arr)=>{
+                      
+                let num=arr.length;
+                res.render('categories',{data:dat,cat:cat,num});
+              })
             }
+
+            else{
+              var num=0; 
+              res.render('categories',{data:dat,cat:cat,num});
+            }
+          }
         })
 
  });
@@ -197,8 +219,7 @@ router.get('/admin',admintokenVerify,(req,res)=>{
     }
     else{
       
-      console.log("jii")
-
+     
     }
     if(data){
       res.render('admin_home', { data:data });
@@ -209,8 +230,10 @@ router.get('/admin',admintokenVerify,(req,res)=>{
 })
 
 })
-router.get('/addtocart/:item',tokenVerify,cartAdd.cart_add);
-router.get('/product/:id',showProduct.productShow);
+
+router.get('/product/:id',getUser,showProduct.productShow);
+// router.get('/cartnum',tokenVerify,cartNum.cartNumber);
+router.get('/getreviews',getReview.getReviews);
 router.get('/cart',tokenVerify,showCart.Cart_show);
 router.get('/addcartitem/:id',cart_plus.addNumber);
 router.get('/minuscartitem/:id',cart_minus.minusCart);
@@ -237,12 +260,19 @@ router.get('/adminlogout',(req,res)=>{
   res.redirect("login")
 })
 //post
+router.get('/placeorder/:id',placeOrdr.placeOrder);
+router.get('/order/success',tokenVerify,orders.Order_item);
 
-
+router.get('/order/confirm',(req,res)=>{
+  res.render('order')
+});
 
 router.post('/signup',Sign.Signup);
 router.post('/login',Log.Login);
 router.post('/google',GoogleAuth.GoogAuth);
+router.post('/addtocart',tokenVerify,cartAdd.cart_add);
 router.post('/additems',Items_add.ItemAdd);
 router.post('/addcat',Category.Category_add);
+router.post('/placeorder',tokenVerify,userAdd.Add_address);
+router.post('/addreview',tokenVerify,reviews.reviewAdd);
 module.exports = router;

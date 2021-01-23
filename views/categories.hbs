@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="zxx">
     <head>
         <!-- Required meta tags -->
@@ -37,6 +37,8 @@
 
         <link rel="icon" type="image/png" href="/assets/img/favicon.png">
 		<script src="https://use.fontawesome.com/acbb0fac19.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     </head>
 
     <body>
@@ -77,19 +79,28 @@
                                 <ul class="navbar-nav">
                                     <li class="nav-item"><a href="/" class="nav-link ">Home</a></li>
                                     
-                                    <li class="nav-item"><a href="#" class="nav-link">Shop by products</a>
-                                        <ul class="dropdown-menu">
-                                         <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-caret-right"></i>&nbsp;Books</a>
-                                         <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-caret-right"></i>&nbsp;Mobile cases</a>
+                                    <li class="nav-item"><a href="/" class="nav-link">Shop by products</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a href="/category/Books" class="nav-link"><i
+                                            class="fas fa-caret-right"></i>&nbsp;Books</a>
+                                <li class="nav-item"><a href="/category/Mobile covers" class="nav-link"><i
+                                            class="fas fa-caret-right"></i>&nbsp;Mobile covers</a>
 
-                                          <li class="nav-item"><a href="webinars.html" class="nav-link"><i class="fas fa-caret-right"></i>&nbsp;Shoes</a>
+                                <li class="nav-item"><a href="/category/T-shirts" class="nav-link"><i
+                                            class="fas fa-caret-right"></i>&nbsp;T-Shirts</a>
+                                <li class="nav-item"><a href="/category/Mobile phones " class="nav-link"><i
+                                            class="fas fa-caret-right"></i>&nbsp;Mobile phones</a>
+                                <li class="nav-item"><a href="/category/Headsets" class="nav-link"><i
+                                            class="fas fa-caret-right"></i>&nbsp;Headsets</a>
+                                <li class="nav-item"><a href="/category/Footwears" class="nav-link"><i
+                                            class="fas fa-caret-right"></i>&nbsp;Footwears</a>
 
-                                        </ul>
-                                    </li>
+                            </ul>
+                        </li>
 
 								
 
-                                    <li class="nav-item"><a href="/cart" class="nav-link">Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;<h4 class="badge badge-primary">{{num}}</h4></a>
+                                    <li class="nav-item"><a href="/cart" class="nav-link">Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;<h4 id="cart-num" class="badge badge-primary">{{num}}</h4></a>
                                         </li>
                                         <li class="nav-item"><a href="/" class="nav-link">Track your order</a>
                                         </li>
@@ -206,7 +217,43 @@
                                                         {{!-- <img src="/assets/img/shop/1-1.jpg" alt="image"> --}}
                                                     </a>
                                                 
-                                                    <a href="/addtocart/{{this._id}}" class="add-to-cart-btn ">Add To Cart <i class="flaticon-shopping-bag"></i></a>
+                                                    {{!-- <a href="/addtocart/{{this._id}}" class="add-to-cart-btn ">Add To Cart <i class="flaticon-shopping-bag"></i></a> --}}
+                                                   <a role="button" class="add-to-cart-btn btn " onclick="addcart('{{this._id}}')">Add to cart</a>
+
+                                                   <script>
+                                                       async function addcart(id){
+                                                           var obj={
+                                                               id:id
+                                            
+                                                           }
+
+                                                           {{!-- console.log(obj); --}}
+
+                                                           try {
+                                                            const res = await axios.post(`http://localhost:3000/addtocart`, obj);
+                                                            const addedcart = res.data;
+
+                                                            console.log(`Added to cart!`, addedcart);
+                                                            if(addedcart.success){
+                                                                Swal.fire('Success...', 'Item added to cart!', 'success');
+
+                                                                let k=document.getElementById("cart-num");
+                                                                let nm=k.innerHTML;
+                                                                console.log(typeof nm);
+                                                                let ab=parseInt(nm);
+                                                                k.innerHTML=ab+1;
+
+                                                               
+                                                            }
+
+                                                        
+                                                        } catch (e) {
+                                                            console.error(e);
+                                                        }
+                                                                                                            
+                                                       }
+                                                   </script>
+                                               
                                                 </div>
 
                                            <div class="product-content">

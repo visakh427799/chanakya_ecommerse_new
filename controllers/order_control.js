@@ -1,6 +1,6 @@
 const express = require('express');
 
-const Address=require('../model/use_address_model');
+const Address=require('../model/address_model');
 const Order = require('../model/order_model');
 const Cart = require('../model/cart_model');
 
@@ -21,13 +21,13 @@ const Order_item=(req,res,next)=>{
         }
         else{
 
-            Address.findOne({U_id:u_id},(err,userAddress)=>{
+            Address.findOne({user_id:u_id},(err,userAddress)=>{
                 if(err){
                     console.log("err");
                 }
                 else{
                     //console.log(data);
-                    
+                    console.log(userAddress)
                     const obj={
                         U_id:u_id,
                         Items:cartArray,
@@ -45,8 +45,7 @@ const Order_item=(req,res,next)=>{
                         }
                         else{
                             //console.log("Sucess")
-                            res.redirect('/cart/address/success')
-
+                            res.render('success')
                         }
                     })
                 

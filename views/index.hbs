@@ -97,10 +97,10 @@
                             </ul>
                         </li>
 
-
+                        
 
                         <li class="nav-item"><a href="/cart" class="nav-link">Cart<i class="fa fa-shopping-cart"
-                                    aria-hidden="true"></i>&nbsp;<h4 class="badge badge-primary">{{num}}</h4></a> </li>
+                                    aria-hidden="true"></i>&nbsp;<h4 class="badge badge-success">{{num}}</h4></a> </li>
                         <li class="nav-item"><a href="/" class="nav-link">Track your order</a></li>
 
                         {{!-- <li class="nav-item"><a href="index.html" class="nav-link text-success "><i
@@ -109,7 +109,7 @@
 
 
 
-                        <li class="nav-item"><a href="#" class="nav-link text-primary">
+                        <li class="nav-item"><a href="#" class="nav-link text-primary"><i class="fa fa-user-circle-o" aria-hidden="true" class="text-dark"></i>
                                 {{#if name}}
 
                                 {{name}}
@@ -131,7 +131,10 @@
 
                                 {{#if name}}
 
-                                <li class="nav-item"><a class="dropdown-item" href="/logout">Logout </a></li>
+                              
+                                 <li class="nav-item"><a class="dropdown-item" href="/">My orders</a></li>
+                                 <li class="nav-item"><a class="dropdown-item" href="/logout">Logout </a></li>
+                               
 
 
                                 {{/if}}
@@ -261,21 +264,11 @@
         </div>
         </div>
 
-        <div class="col-lg-12 col-md-12">
-            <div class="pagination-area">
-                <a href="#" class="prev page-numbers"><i class="fas fa-angle-double-left"></i></a>
-                <a href="#" class="page-numbers">1</a>
-                <span class="page-numbers current" aria-current="page">2</span>
-                <a href="#" class="page-numbers">3</a>
-                <a href="#" class="page-numbers">4</a>
-                <a href="#" class="next page-numbers"><i class="fas fa-angle-double-right"></i></a>
-            </div>
-        </div>
-        </div>
+        
         </div>
     </section>
     <!-- End Shop Area -->
-
+     <h2 class="text-center">New Arrivals</h2>
     <!-- Start Footer Area -->
     <section class="footer-area mt-3">
         <div class="container">
@@ -283,21 +276,12 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12">
                         <div class="newsletter-content">
-                            <h2>Join Our Newsletter</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
+                            <h2>Get in touch</h2>
+                            
                         </div>
                     </div>
 
-                    <div class="col-lg-6 col-md-12">
-                        <form class="newsletter-form" data-toggle="validator">
-                            <input type="email" class="input-newsletter" placeholder="Enter your email" name="EMAIL"
-                                required autocomplete="off">
-
-                            <button type="submit">Subscribe <i class="fas fa-paper-plane"></i></button>
-                            <div id="validator-newsletter" class="form-result"></div>
-                        </form>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -306,7 +290,7 @@
                     <div class="single-footer-widget">
                         <div class="logo">
                             <a href="#"><img src="assets/img/logo3.png" alt="image"></a>
-                            <p>Chanakya - Online Mental Health Service Platform.</p>
+                            <p>Chanakya - Ecommerce</p>
                         </div>
 
                         <ul class="social">

@@ -4,7 +4,10 @@ const Item    = require('../model/items_model')
 
 
 const cart_add=(req,res,next)=>{
-   let item_id=req.params.item;
+ let item_id=req.body.id;
+
+
+
    //console.log(item_id);
    let payload=res.user;//taking value from decoded
    let u_id=payload.username.u_id;
@@ -50,18 +53,19 @@ const cart_add=(req,res,next)=>{
     //    else{
 
         Cart.create(cart_obj,(err,data)=>{
-            if(err)
+            if(err){
             console.log(err)
-     
-            else
+            res.json({
+                "success":false
+            })
+        }
+            else{
             console.log("Added to cart");
-            Item.find({},(err,data)=>{
-             let payload=res.user;//taking value from decoded
-             let name=payload.username.name;
-                let info=true;
-             res.redirect('/cart')
+            res.json({
+                "success":true
             })
             
+        } 
         })
 
 
