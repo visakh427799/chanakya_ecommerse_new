@@ -192,65 +192,112 @@
                 {{#each data}}
 
                 <div class="col-md-4 mt-2">
-                    <div class="card" style="width:12rem;">
-                        <img class="img-responsive" src="/assets/img/{{this.item_image}}" alt="Card image cap" >
+                    <div class="card" style="width:10rem;">
+                        <img class="img-responsive ml-4" src="/assets/img/{{this.item_image}}" alt="Card image cap" width="100px"  height="100px">
                     </div>
                 </div>
                 <div class="col-md-4 mt-3">
-                    <a href="/product/{{this.item_id}}"><h5 class="card-title">{{this.item_name}}</h5></a>
+                    <a href="/product/{{this.item_id}}"><h5 class="card-title text-primary">{{this.item_name}}</h5></a>
                     <p class="card-text">{{this.item_desc}}</p>
-                    <p class="card-text"> Nos: {{this.item_nos}}</p>
-                    <h5 class="card-title">Prize: {{this.item_prize }} {{this.item_nos}} /-</h5>
+                    <p class="card-text text-dark"> Nos:<span id={{this._id}} class="text-primary text-bold">{{this.item_nos}}</span> </p>
+                    <h5 class="card-title">Prize: {{this.item_prize }} /-</h5>
 
 
                 </div>
                 <div class="col-md-4 mt-4">
-                    <a class="btn btn-success" href="/addcartitem/{{this._id}}">+</a>
-                    <a class="btn btn-primary" href="/minuscartitem/{{this._id}}">-</a>
+                    <a class="btn btn-success text-white"  onclick="pluscart('{{this._id}}','{{this.item_prize}}')">+</a>
+                    <a class="btn btn-primary text-white"  onclick="minuscart('{{this._id}}','{{this.item_prize}}')">-</a>
                     <a class="btn btn-danger " href="/removecartitem/{{this._id}}">Remove</a>
 
                 </div>
-                {{!-- <script>
-                      function remove(id){
+                <script>
+                      async function minuscart(id,prize){
 
-                          alert(id);
+                          
 
-                            try{
+                           let obj={
+                               id:id
+                           }
 
                                      try {
-                                                  const res = await axios.post(`http://localhost:3000/addtocart`, obj);
+                                                  const res = await axios.post(`http://localhost:3000/minuscartitem`, obj);
+                                                            const addedcart = res.data;
+
+                                                        
+                                                            if(addedcart.success){
+                                                                let nos=document.getElementById(id);
+                                                                num=nos.innerHTML;
+                                                                console.log(num);
+                                                                let k=parseInt(num);
+                                                                 nos.innerHTML=k-1;
+                                                                 let total=document.getElementById("total_prize");
+                                                                let tprize=total.innerHTML;
+                                                                 let tp=parseInt(tprize);
+                                                                 let p=parseInt(prize);
+                                                                console.log(k)
+                                                               
+                                                                {{!-- total.innerHTML=tp-(p*(k-1)); --}}
+
+                                                                 Swal.fire('Success...', 'Item quantity decremented!', 'success');
+                                                            }
+
+                                                        
+                                        } catch (e) {
+                                                            console.error(e);
+                                                    }
+
+                      }                                           
+
+                          async function pluscart(id,prize){
+
+                         
+
+                           let obj={
+                               id:id
+                           }
+
+                                     try {
+                                                  const res = await axios.post(`http://localhost:3000/addcartitem`, obj);
                                                             const addedcart = res.data;
 
                                                             console.log(`Added to cart!`, addedcart);
                                                             if(addedcart.success){
-                                                                Swal.fire('Success...', 'Item added to cart!', 'success')
+                                                                let nos=document.getElementById(id);
+                                                                let total=document.getElementById("total_prize");
+                                                                let tprize=total.innerHTML;
+                                                                 let tp=parseInt(tprize);
+                                                                 let p=parseInt(prize);
+                                                                num=nos.innerHTML;
+                                                                  let k=parseInt(num);
+                                                                   nos.innerHTML=k+1;
+                                                                {{!-- console.log(num); --}}
+                                                               Swal.fire('Success...', 'Item quantity incremented!', 'success');
+                                                             
+                                                                
+                                                                 {{!-- total.innerHTML=tp+(p*(k+1));
+                                                 --}}
                                                             }
 
                                                         
-                                                        } catch (e) {
+                                        } catch (e) {
                                                             console.error(e);
-                                                        }
-                                                                      
-
-                            }
-                            catch{
-
-                            }
-
+                                                    }
+                                                       
                           
                       }
 
 
-                </script> --}}
+                </script> 
 
                 {{/each}}
                          <div class="item ml-5">
             
-                <h3>Total prize:{{sum}}/-</h3>
+                            <center><h3 >Total prize:<span id="total_prize">{{sum}}</span>/-</h3></center>
                 <a href="/placeorder/{{u_id}}" class="btn btn-primary">Place order!</a>
-              
 
-            </div>
+                       </div>
+            
+                
             </div>
             
             {{else}}
@@ -258,7 +305,7 @@
             <center><a class="btn btn-primary" href="/">shop now</a></center>
             {{/if}}
 
-
+     
 
             <div class="col-lg-12 col-md-12 ">
                 <div class="pagination-area">

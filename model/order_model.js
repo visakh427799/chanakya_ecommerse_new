@@ -7,7 +7,7 @@ const Order_Schema=new Schema({
     U_id:String,
     Items:Array,
     Date:Date,
-    Total:Number,
+    Total:'Number',
     Address:Object,
     Payment_status:Boolean,
     Order_status:Boolean,

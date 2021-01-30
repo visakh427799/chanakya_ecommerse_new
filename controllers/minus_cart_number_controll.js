@@ -4,7 +4,7 @@ const Cart  = require('../model/cart_model');
 
 const minusCart=async (req,res,next)=>{
       
-    let id=req.params.id;
+    let id=req.body.id;
     //console.log(id)
     await Cart.findOne({_id:id},(err,data)=>{
    //console.log(data)
@@ -26,7 +26,9 @@ const minusCart=async (req,res,next)=>{
     (err,data)=>{
               
               if(!err){
-                  res.redirect('/cart')
+                 res.json({
+                     "success":true
+                 })
               }
             
               

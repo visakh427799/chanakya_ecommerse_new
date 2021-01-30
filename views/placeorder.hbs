@@ -141,7 +141,7 @@
                                 <div class="col-lg-6 col-md-6">
 
                                     <div class="form-group">
-                                        <label for="inputEmail4" class="text-warning">Name</label>
+                                        <label  class="text-warning">Name</label>
                                         <input type="text" name="username" class="form-control" required
                                             placeholder="Please enter your name">
                                         <div class="help-block with-errors"></div>
@@ -150,7 +150,7 @@
                                 <div class="col-lg-6 col-md-6">
 
                                     <div class="form-group">
-                                        <label for="inputEmail4" class="text-warning"> Pincode</label>
+                                        <label  class="text-warning"> Pincode</label>
                                         <input type="text" name="userpin" class="form-control" required
                                             placeholder="Please enter your pincode">
                                         <div class="help-block with-errors"></div>
@@ -160,7 +160,7 @@
                                 <div class="col-lg-6 col-md-6">
 
                                     <div class="form-group">
-                                        <label for="inputEmail4" class="text-warning">Post Office</label>
+                                        <label  class="text-warning">Post Office</label>
                                         <input type="text" name="userpostoffice" id="phone_number" required
                                             placeholder="Post office" class="form-control">
                                         <div class="help-block with-errors"></div>
@@ -170,7 +170,7 @@
                                 <div class="col-lg-6 col-md-6">
 
                                     <div class="form-group">
-                                        <label for="inputEmail4" class="text-warning">Phone</label>
+                                        <label  class="text-warning">Phone</label>
                                         <input type="text" name="userphone" id="email" class="form-control" required
                                             placeholder="Please enter your phone">
                                         <div class="help-block with-errors"></div>
@@ -180,7 +180,7 @@
                                 <div class="col-lg-6 col-md-6">
 
                                     <div class="form-group">
-                                        <label for="inputEmail4" class="text-warning">State</label>
+                                        <label class="text-warning">State</label>
                                         <select name="userstate" class="form-control">
                                             {{#each dat}}
                                             <option value="{{this.d}}">{{this.d}}</option>
@@ -192,7 +192,7 @@
                                 <div class="col-lg-6 col-md-6">
 
                                     <div class="form-group">
-                                        <label for="inputEmail4" class="text-warning">District</label>
+                                        <label  class="text-warning">District</label>
                                         <input type="text" name="userdistrict" id="phone_number" required
                                             placeholder="Please enter your district" class="form-control">
                                         <div class="help-block with-errors"></div>
@@ -202,8 +202,8 @@
                                 <div class="col-lg-6 col-md-6">
 
                                     <div class="form-group">
-                                        <label for="inputEmail4" class="text-warning">City/Locality</label>
-                                        <input type="password" name="usercity" id="phone_number" required
+                                        <label class="text-warning">City/Locality</label>
+                                        <input type="text" name="usercity" id="phone_number" required
                                             placeholder="Please enter your locality and city" class="form-control">
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -246,8 +246,11 @@
                         <div class="col-sm-12 border bg-light">
 
                             <div class="mt-4">
-                                <h6 class="text-warning">Total Amount : <span class="text-success"> {{sum}}/-</span></h6>
-                            </div>
+                                <h6 class="text-warning">Total Amount :<span class="badge badge-primary">{{sum}}/-</span> 
+                                {{!-- <span class="text-success"> </span></h6> --}}
+     
+                                  
+                                             </div>
                             <div class="pt-4">
                                 <input type="radio" value="COD" checked="checked" name="userpaymentmethod" id="phone_number"
                                     required>&nbsp;&nbsp;&nbsp;<label>COD</label>
@@ -256,10 +259,7 @@
                                 <input type="radio" value="Online" name="userpaymentmethod" id="phone_number"
                                     required>&nbsp;&nbsp;&nbsp;<label>Online</label>
                             </div>
-                            <div class="pt-4">
-                                <input type="radio" value="Other" name="userpaymentmethod" id="phone_number"
-                                    required>&nbsp;&nbsp;&nbsp;<label>Other</label>
-                            </div>
+                            
 
                             <div class="col-lg-12 col-md-12 m-4">
                                    

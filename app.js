@@ -8,6 +8,7 @@ var hbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const upload  =require('express-fileupload')
 require('./dbconn');
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(upload());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

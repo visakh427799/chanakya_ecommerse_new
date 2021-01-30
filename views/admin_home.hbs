@@ -37,6 +37,8 @@
 
         <link rel="icon" type="image/png" href="assets/img/favicon.png">
 		<script src="https://use.fontawesome.com/acbb0fac19.js"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     </head>
 
     <body>
@@ -102,7 +104,8 @@
         <!-- End Page Title Area -->
            
 
-<a class="btn btn-success m-4" href="/admin/add-products">Add products</a>
+<a class="btn btn-success m-4" href="/admin/add-products">Add products</a>  <a class="btn btn-danger m-4" href="/admin/add-products">Delete all  products</a>
+
 
 <section>
     <div class="row m-3">
@@ -114,19 +117,21 @@
                 <th scope="col">Item-prize</th>
                 <th scope="col">Item-stock</th>
                 <th scope="col">Item-image</th>
+                <th scope="col">Options</th>
               </tr>
             </thead>
             <tbody>
 
       {{#each data}}
 
-              <tr>
+              <tr id={{this._id}}>
                
                 <td>{{this.itm_name}}></td>
                 <td>{{this.itm_category}}</td>
                 <td>{{this.itm_prize}}</td>
                 <td>{{this.itm_stock}}</td>
-                <td><img width="50px" height="50px" src="<%=item.itm_image%>"</td>
+                <td><img width="50px" height="50px" src="assets/img/Products/{{this.itm_image}}"</td>
+                <td><a class="btn btn-primary text-white" onclick="item_delete('{{this._id}}','{{this.itm_image}}')">DELETE</a></td>
               </tr>
      {{/each}}    
             </tbody>
@@ -213,6 +218,45 @@
         <!-- End Footer Area -->
 
         <div class="go-top"><i class="fas fa-chevron-up"></i></div>
+
+        <script>
+           async function item_delete(id,img){
+
+                   let obj={
+                     id:id,
+                     imgname:img
+                   }
+
+              try{
+                let res= await axios.post('http://localhost:3000/delete_product',obj);
+                let data=res.data;
+                console.log(data)
+
+                    if(data.success){
+                       Swal.fire('Success...', 'Item deleted!', 'success');
+
+                        document.getElementById(id).remove(); 
+
+
+                    }
+
+                    else{
+                      Swal.fire({
+                          icon: 'error',
+                          title: 'Oops...',
+                          text: 'Something went wrong!',
+                         
+                        })
+                    }
+              }
+              catch(err){
+                console.log(err)
+              } 
+           }
+        </script>
+
+
+
         
         <!-- jQuery Min JS -->
         <script src="assets/js/jquery.min.js"></script>

@@ -45,6 +45,7 @@
 
     <!-- Include a polyfill for ES6 Promises (optional) for IE11 -->
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <title>Chanakya - Ecommerce</title>
 
@@ -171,7 +172,7 @@
                             </div>
                             <div class="col-md-12">
                                
-                                <a href="#" onclick="signOut();">Sign out</a>
+                               
                             </div>
 
 
@@ -196,16 +197,16 @@
 
     <script>
   
-        function onSignIn(googleUser) {
-
+    async function onSignIn(googleUser) {
+              signOut()
             var id_token = googleUser.getAuthResponse().id_token;
 
 
-            const todo = {
-                title: 'test'
+            const obj = {
+                id: id_token
             };
 
-            fetch('/google', {
+            /*fetch('/google', {
                 method: 'POST',
                 body: JSON.stringify(todo),
                 headers: {
@@ -222,10 +223,18 @@
                      else{
                          signOut();
                      }
-                });
+                });*/
                 
-             
+              try {
+                       const res = await axios.post(`http://localhost:3000/google`, obj);
+                       const addedcart = res;
+                       if(addedcart.data.login){
+                           location.href='/';
+                       }
+              }
+              catch(e){
 
+              }
 
             /* var profile = googleUser.getBasicProfile();
              console.log("hiii")
@@ -237,7 +246,7 @@
     </script>
 
 
-    
+
 <script>
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
@@ -246,6 +255,7 @@
     });
   }
 </script>
+  
 
     <script src="assets/js/jquery.min.js"></script>
     <!-- Popper Min JS -->

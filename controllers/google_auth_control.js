@@ -8,8 +8,9 @@ const User   = require('../model/user_model');
 const GoogAuth=(req,res,next)=>{
 const jwt     =require('jsonwebtoken')
    //receiving google token from client side
-   let token=req.headers.token;
+   let token=req.body.id;
    console.log(token)
+   
    //call verifyToken function
 
    async function verify() {
@@ -52,10 +53,7 @@ const jwt     =require('jsonwebtoken')
                             res.cookie('token',token);
                             res.json({"login":true})
                             
-                           /* res.json({
-                                "Message":"An account with this email id already exist  and cokie set"
-                            })*/
-                           //res.send("Registration success and Cookie Set"); 
+                          
                            
                          
                         

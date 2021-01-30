@@ -2,6 +2,10 @@ const express = require('express');
 const Address = require('../model/address_model');
 const Cart  = require('../model/cart_model')
 var P_key='pk_test_51HzOX8H1q928mWLKe7WnxPL2UBbFx52f5dIckwG2DZbJnLRhoBo4bhnPSUPgONhGO1dkjKF6vN41VXUlLJhLqOEN000x01Lm9U';
+
+
+
+
 const Add_address=(req,res,next)=>{
 
 let payload=res.user;
@@ -36,7 +40,9 @@ Address.findOne({user_id:u_id},(err,data)=>{
             //     sum+=val.item_prize*val.item_nos;
             // })
             
-            res.redirect('/order/confirm')
+            let mt=req.body.userpaymentmethod;
+                                  
+                           res.render('order',{mt})
             
          })
      
@@ -49,11 +55,16 @@ Address.findOne({user_id:u_id},(err,data)=>{
                         console.log(err)
                     }
                     else if(data){
-                       if(req.body.userpaymentmethod==="COD"){
+                       
+                           let mt=req.body.userpaymentmethod;
                                   
-            res.redirect('/order/confirm')
+                           res.render('order',{mt})
             
-                       }
+                      
+
+
+
+
                     }
                 })
        }

@@ -22,7 +22,10 @@ const userAdd   = require('../controllers/user_address_controll');
 const orders    = require('../controllers/order_control');
 const reviews   = require('../controllers/review_controll');
 const getReview = require('../controllers/getreviews_control');
-const cartNum   = require('../controllers/cart_number_return')
+const cartNum   = require('../controllers/cart_number_return');
+const verify    = require('../controllers/verify_payment_controll');
+const demo      = require('../controllers/demo');
+const Itm_delete = require('../controllers/item_delete_controll');
 const getAppCookies = (req) => {
   // We extract the raw cookies from the request headers
   if( req.headers.cookie)
@@ -235,8 +238,8 @@ router.get('/product/:id',getUser,showProduct.productShow);
 // router.get('/cartnum',tokenVerify,cartNum.cartNumber);
 router.get('/getreviews',getReview.getReviews);
 router.get('/cart',tokenVerify,showCart.Cart_show);
-router.get('/addcartitem/:id',cart_plus.addNumber);
-router.get('/minuscartitem/:id',cart_minus.minusCart);
+
+
 router.get('/removecartitem/:id',remove_cart.removeCart);
 router.get('/admin/allusers',admintokenVerify,admin_users.UserShow)
 router.get('/admin/allorders',admintokenVerify,All_order.All_orders)
@@ -251,6 +254,9 @@ router.get('/admin/add-products',admintokenVerify,(req,res)=>{
         })
       
     }) ;
+// router.get('/success',tokenVerify,(req,res)=>{
+//   res.render('success')
+// })    
 router.get('/logout',(req,res)=>{
       res.clearCookie('token');
       res.redirect("login")
@@ -261,7 +267,7 @@ router.get('/adminlogout',(req,res)=>{
 })
 //post
 router.get('/placeorder/:id',placeOrdr.placeOrder);
-router.get('/order/success',tokenVerify,orders.Order_item);
+
 
 router.get('/order/confirm',(req,res)=>{
   res.render('order')
@@ -272,7 +278,12 @@ router.post('/login',Log.Login);
 router.post('/google',GoogleAuth.GoogAuth);
 router.post('/addtocart',tokenVerify,cartAdd.cart_add);
 router.post('/additems',Items_add.ItemAdd);
+router.post('/delete_product',admintokenVerify,Itm_delete.itemDelete);
 router.post('/addcat',Category.Category_add);
 router.post('/placeorder',tokenVerify,userAdd.Add_address);
 router.post('/addreview',tokenVerify,reviews.reviewAdd);
+router.post('/minuscartitem',cart_minus.minusCart);
+router.post('/addcartitem',cart_plus.addNumber);
+router.post('/order/success',tokenVerify,orders.Order_item);
+router.post('/order/demo',tokenVerify,demo.Demo);
 module.exports = router;

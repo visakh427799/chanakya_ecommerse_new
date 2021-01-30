@@ -6,13 +6,13 @@ const placeOrder=(req,res,next)=>{
 
     let dat=[
        {
-           d:"Tvm"
+           d:"Kerala"
        },
        {
-        d:"Kollam"
+        d:"Karnataka"
     },
     {
-        d:"Pathanm"
+        d:"Tamilnadu"
     }
     ]
     let u_id=req.params.id;
