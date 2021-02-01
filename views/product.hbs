@@ -197,7 +197,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12">
                         <div class="product-details-image">
-                            <img src="/assets/img/{{data.itm_image}}" alt="image" >
+                            <img src="/assets/img/products/{{data.itm_image}}" alt="image" >
                         </div>
                     </div>
 
@@ -218,14 +218,14 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star-half-alt"></i>
                                 </div>
-                                <a href="#" class="rating-count">3 reviews</a>
+                                <a  class="rating-count" onclick= "getReviews('{{data._id}}')";> reviews</a>
                             </div>
 
                             <p>{{data.itm_description}}</p>
                             <div class="product-add-to-cart">
                                 
                               
-                                    <a role="button" class="add-to-cart-btn btn btn-primary " onclick="addcart('{{data._id}}')">Add to cart</a>
+                                    <a role="button" class="add-to-cart-btn btn btn-primary text-white" onclick="addcart('{{data._id}}')">Add to cart</a>
 
                                                    <script>
                                                        async function addcart(id){
@@ -262,9 +262,7 @@
 {{/if}}
                             
 
-                                <div class="item">
-                                    <a href="#" class="btn btn-light">Buy it now!</a>
-                                </div>
+                                
                             </div>
 
                             <div class="custom-payment-options">
@@ -292,9 +290,7 @@
                                             <div class="dot"></div> Description
                                         </a></li>
                                         
-                                        <li><a href="#"  role="button" class='btn'>
-                                            <div class="dot"></div> Additional information
-                                        </a></li>
+                                        
 
                                         <li><a role="button" class='btn' onclick= "getReviews('{{data._id}}')";>
                                             <div class="dot"></div> Reviews
@@ -310,21 +306,11 @@
                                             </div>
                                         </div>
 
-                                        <div class="tabs_item">
-                                            <div class="products-details-tab-content">
-                                                <ul class="additional-information">
-                                                    <li><span>Brand:</span> ThemeForest</li>
-                                                    <li><span>Color:</span> Brown</li>
-                                                    <li><span>Size:</span> Large, Medium</li>
-                                                    <li><span>Weight:</span> 27 kg</li>
-                                                    <li><span>Dimensions:</span> 16 x 22 x 123 cm</li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                       
 
                                         <div class="tabs_item">
                                             <div class="products-details-tab-content">
-                                                <div class="product-review-form">
+                                                <div class="product-review-form" id="#rv">
                                                     <h3>Customer Reviews</h3>
 
                                                     <div class="review-title">
